@@ -1,3 +1,4 @@
+%%writefile person_detect.py
 
 import numpy as np
 import time
@@ -71,7 +72,7 @@ class PersonDetect:
         
         print('Network loaded.')
         
-    def predict(self, image, initial_w, initial_h):
+    def predict(self, image):
 
         input_name = self.input_name
 
@@ -171,7 +172,7 @@ def main(args):
                 break
             counter+=1
             
-            coords, image = pd.predict(frame, initial_w, initial_h)
+            coords, image = pd.predict(frame)
             
             num_people = queue.check_coords(coords)
             print(f"Total People in frame = {len(coords)}")
